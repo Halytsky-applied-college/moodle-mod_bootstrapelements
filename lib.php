@@ -167,7 +167,6 @@ function bootstrapelements_get_extra_capabilities() {
  * @uses FEATURE_IDNUMBER
  * @uses FEATURE_GROUPS
  * @uses FEATURE_GROUPINGS
- * @uses FEATURE_GROUPMEMBERSONLY
  * @uses FEATURE_MOD_INTRO
  * @uses FEATURE_COMPLETION_TRACKS_VIEWS
  * @uses FEATURE_GRADE_HAS_GRADE
@@ -185,9 +184,6 @@ function bootstrapelements_supports($feature) {
         }
         case FEATURE_GROUPINGS: {
             return false;
-        }
-        case FEATURE_GROUPMEMBERSONLY: {
-            return true;
         }
         case FEATURE_MOD_INTRO: {
             return true;
