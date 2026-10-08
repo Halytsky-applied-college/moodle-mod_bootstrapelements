@@ -1,28 +1,94 @@
-Bootstrap Elements
-============================
-Bootstrap Elements gives you the ability to add modal and toggles to your courses, helping to improve the layout of courses. It is in essence an improved "label" resource type with an opton allowing you to set content to display as a:
+# Bootstrap Elements for Moodle
 
-* Modal box (popup box)
-* Toggle (expandable / drop-down content
-* Enhanced Label (with title, really designed so you can turn off Bootstrap features and have content display statically)
+Bootstrap Elements allows teachers to add modal dialogs and expandable
+content to Moodle courses, helping improve course layout while using
+less space on the page.
 
-This will help teachers add more dynamic, interactive content within courses whilst consuming less space on the page. 
+The plugin works as an enhanced Label resource, with options to display
+content as:
 
-**Please note**: This plugin will only work with themes that are based on Bootstrap and have support for for the Bootstrap elements referenced by this plugin. 
+- Modal dialog — content displayed in a popup.
+- Toggle — expandable and collapsible content.
+- Enhanced Label — static content with a title.
 
-Themes known to work with this plugin are:
-* BCU Theme
-* Adaptable Theme
-* Essential Theme
-* Shoehorn Theme
+## About this repository
 
-We will expand this list to include other themes as we confirm their compatibility.
+This repository is an unofficial maintenance continuation of the
+original `mod_bootstrapelements` plugin.
 
-**Future Plans**:
+The original upstream repository was hosted on Bitbucket and is no
+longer available. This repository was created from an existing copy
+of the plugin to preserve its source code and provide a starting
+point for further maintenance.
 
-* Auto detect theme compatability and fall back on non supported themes (so multiple themes in the same site can be supported)
-* Add color options
-* Add additional icon to Toggle to make it clear it is clickable
-* Look at other elements such as callouts and possibly Tabs / Accordion
+It is not a platform-linked GitHub fork of the original repository.
 
-If you have any other suggestions for improvement please let us know!
+The goal of this continuation is to adapt the plugin for Moodle 5.3
+and Bootstrap 5 while preserving existing plugin data and functionality
+where possible.
+
+This project is not an official release from the original authors
+and is not affiliated with or endorsed by them.
+
+## Theme compatibility
+
+Bootstrap Elements depends on Bootstrap components provided by the
+active Moodle theme.
+
+The original README listed the following themes as compatible with
+the original plugin:
+
+- BCU
+- Adaptable
+- Essential
+- Shoehorn
+
+This is historical information from the upstream project, not a
+compatibility statement for current versions of these themes or Moodle.
+
+Compatibility with modern Bootstrap 5-based themes will be evaluated
+during development.
+
+## Plugin identity
+
+The Moodle component name remains:
+
+`mod_bootstrapelements`
+
+This project continues maintenance of the existing plugin rather
+than introducing a new Moodle component.
+
+## Contributing
+
+Bug reports, compatibility feedback, and pull requests are welcome.
+
+When reporting a problem, include:
+
+- Moodle version.
+- PHP version.
+- Theme name and version.
+- Steps to reproduce the issue.
+- Relevant Moodle debugging output or browser console errors.
+
+Do not include passwords, access tokens, personal data, or production
+database dumps.
+
+## Credits
+
+Original plugin copyright notices credit:
+
+2014 Birmingham City University / Michael Grant.
+
+Original copyright and license notices are preserved in the source files.
+
+Changes made as part of this continuation will be documented in Git
+history and, where appropriate, in the source files and changelog.
+
+## License
+
+This plugin is licensed under the GNU General Public License, version 3.
+
+See `LICENSE` for the full license text.
+
+Any bundled third-party components remain subject to their respective
+license notices.
