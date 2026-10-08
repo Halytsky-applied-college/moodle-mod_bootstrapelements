@@ -102,7 +102,7 @@ function bootstrapelements_get_coursemodule_info($coursemodule) {
     if ($bootstrapelements = $DB->get_record('bootstrapelements', array('id' => $coursemodule->instance),
             'id, name, intro, introformat, title, bootstraptype, bootstrapicon')) {
         if (!$bootstrapelements->name || $bootstrapelements->name == 'bootstrapelements') {
-            $bootstrapelements->name = $bootstrapelements->name;
+            $bootstrapelements->name = "bootstrapelements".$bootstrapelements->id;
             $DB->set_field('bootstrapelements', 'name', $bootstrapelements->name, array('id' => $bootstrapelements->id));
         }
 
@@ -137,8 +137,13 @@ function bootstrapelements_get_coursemodule_info($coursemodule) {
             break;
         }
 
-        $info->name  = $bootstrapelements->name;
-        return $info;
+        $displayname = trim(strip_tags($bootstrapelements->title ?? ''));
+
+	$info->name = $displayname !== ''
+    		? $displayname
+    		: $bootstrapelements->name;
+
+	return $info;
     } else {
         return null;
     }
