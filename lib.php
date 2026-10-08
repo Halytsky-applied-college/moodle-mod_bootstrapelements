@@ -239,7 +239,7 @@ function bootstrapelements_toggle_outline($togglename, $toggletitle, $togglecont
     ));
 
     $output .= html_writer::tag('a', '<i class="fa '.$icon.'"></i>'.$toggletitle, array(
-        'data-toggle' => 'collapse',
+        'data-bs-toggle' => 'collapse',
         'class' => 'accordion-toggle collapsed',
         'href' => '#'.$togglename
     ));
@@ -265,11 +265,13 @@ function bootstrapelements_toggle_outline($togglename, $toggletitle, $togglecont
 }
 
 function bootstrapelements_modal_outline($modalname, $modaltitle, $modalcontent, $icon) {
+    $titleid = $modalname.'-title';
+
     $output = html_writer::start_tag('div', array(
         'id' => $modalname,
-        'class' => 'modal hide fade',
-        'role' => 'dialog',
-        'aria-labelledby' => 'myModalLabel',
+        'class' => 'modal fade',
+        'tabindex' => '-1',
+        'aria-labelledby' => $titleid,
         'aria-hidden' => 'true'
     ));
 
@@ -285,65 +287,66 @@ function bootstrapelements_modal_outline($modalname, $modaltitle, $modalcontent,
         'class' => 'modal-header'
     ));
 
-    $output .= html_writer::start_tag('h4', array(
-        'class' => 'modal-title'
+    $iconhtml = html_writer::tag('i', '', array(
+        'class' => 'fa '.$icon,
+        'aria-hidden' => 'true'
     ));
 
-    $output .= '<i class="fa '.$icon.'"></i>';
+    $output .= html_writer::tag('h4', $iconhtml.$modaltitle, array(
+        'class' => 'modal-title',
+        'id' => $titleid
+    ));
 
-    $output .= $modaltitle;
-
-    $output .= html_writer::end_tag('h4');
+    $output .= html_writer::tag('button', '', array(
+        'type' => 'button',
+        'class' => 'btn-close',
+        'data-bs-dismiss' => 'modal',
+        'aria-label' => get_string('close', 'core')
+    ));
 
     $output .= html_writer::end_tag('div');
 
-    $output .= html_writer::start_tag('div', array(
+    $output .= html_writer::tag('div', $modalcontent, array(
         'class' => 'modal-body'
     ));
-
-    $output .= $modalcontent;
-
-    $output .= html_writer::end_tag('div');
 
     $output .= html_writer::start_tag('div', array(
         'class' => 'modal-footer'
     ));
 
-    $output .= html_writer::start_tag('button', array(
+    $output .= html_writer::tag('button', get_string('close', 'core'), array(
         'type' => 'button',
-        'class' => 'btn btn-default',
-        'data-dismiss' => 'modal'
+        'class' => 'btn btn-secondary',
+        'data-bs-dismiss' => 'modal'
     ));
 
-    $output .= 'Close';
-
-    $output .= html_writer::end_tag('button');
-
     $output .= html_writer::end_tag('div');
-
     $output .= html_writer::end_tag('div');
-
     $output .= html_writer::end_tag('div');
-
     $output .= html_writer::end_tag('div');
 
     $output .= html_writer::start_tag('div', array(
-        'class' => 'text-left'
+        'class' => 'text-start'
     ));
 
     return $output;
 }
 
 function bootstrapelements_modal_button($modalname, $modaltitle, $icon) {
-    $output = html_writer::start_tag('button', array(
-        'class' => 'btn btn-primary btn-lg',
-        'data-toggle' => 'modal',
-        'data-target' => '#'.$modalname
+    $iconhtml = html_writer::tag('i', '', array(
+        'class' => 'fa '.$icon,
+        'aria-hidden' => 'true'
     ));
-    $output .= '<i class="fa '.$icon.'"></i>';
-    $output .= $modaltitle;
-    $output .= html_writer::end_tag('button');
+
+    $output = html_writer::tag('button', $iconhtml.$modaltitle, array(
+        'type' => 'button',
+        'class' => 'btn btn-primary btn-lg',
+        'data-bs-toggle' => 'modal',
+        'data-bs-target' => '#'.$modalname
+    ));
+
     $output .= html_writer::end_tag('div');
+
     return $output;
 }
 
