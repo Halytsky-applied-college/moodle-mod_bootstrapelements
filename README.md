@@ -32,6 +32,10 @@ and is not affiliated with or endorsed by them.
 
 ## Theme compatibility
 
+Currently tested only on Moodle 5.3 with Boost theme.
+Installation on earlier Moodle versions is intentionally restricted
+until compatibility has been verified.
+
 Bootstrap Elements depends on Bootstrap components provided by the
 active Moodle theme.
 
